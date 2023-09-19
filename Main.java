@@ -1,51 +1,79 @@
+import java.io.*;
 import java.util.ArrayList;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
+        // Specify the file path for reading and writing
+        String filePath = "C:\\Users\\BE218\\IdeaProjects\\ArrivingAnimals\\src\\arrivingAnimals.txt";
 
-        ArrayList<Cat> catList = new ArrayList<>();
+        ArrayList<Animal> animalList = new ArrayList<>(); // Fix the ArrayList declaration
 
-        Cat myCat1 = new Cat();
-        myCat1.meowSound = "Moo";
-        myCat1.name = "Fluffy";
-        myCat1.age = 3;
+        // Create the File object
+        File file = new File(filePath);
 
-        Cat myCat2 = new Cat();
-        myCat2.meowSound = "Bark";
-        myCat2.name = "Gansito";
-        myCat2.age = 8;
+        try {
+            // Create the parent directories if they don't exist
+            File parentDirectory = file.getParentFile();
+            if (!parentDirectory.exists()) {
+                parentDirectory.mkdirs();
+            }
 
-        Cat myCat3 = new Cat();
-        myCat3.meowSound = "Roar";
-        myCat3.name = "Whiskers";
-        myCat3.age = 1;
+            // Create a FileWriter to write to the file
+            FileWriter writer = new FileWriter(file);
 
-        Cat myCat4 = new Cat();
-        myCat4.meowSound = "I'm Cool";
-        myCat4.name = "Simba";
-        myCat4.age = 2;
+            // Create a BufferedWriter to write efficiently
+            BufferedWriter bufferedWriter = new BufferedWriter(writer);
 
-        Cat myCat5 = new Cat();
-        myCat5.meowSound = "AAAHHH";
-        myCat5.name = "Lucy";
-        myCat5.age = 5;
+            // Open and read an existing animal file
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath));
 
-        catList.add(myCat1);
-        catList.add(myCat2);
-        catList.add(myCat3);
-        catList.add(myCat4);
-        catList.add(myCat5);
+            String line;
 
-        for (Cat cat : catList) {
-            System.out.println(cat.toString()); // Print the cat object's fields using toString
+            // Read and print each line from the file
+            while ((line = bufferedReader.readLine()) != null) {
+                System.out.println(line);
+
+                // Split the line into 5 substrings (assuming your data has 5 parts)
+                String[] myArray = line.split(",");
+
+                // Create an Animal object from the Animal class
+                Animal anyOldAnimal = new Animal();
+
+                // Fill the object's data fields
+                anyOldAnimal.desc = myArray[0];
+                anyOldAnimal.birthSeason = myArray[1];
+                anyOldAnimal.color = myArray[2];
+                anyOldAnimal.origin1 = myArray[3];
+                anyOldAnimal.origin2 = myArray[4];
+
+                // Add the Animal object to the ArrayList
+                animalList.add(anyOldAnimal);
+
+                // Write each line of the animalList to the file (you may remove this if not needed)
+                bufferedWriter.write(anyOldAnimal.toString() + "\n");
+            }
+
+            // Close the BufferedReader and BufferedWriter
+            bufferedReader.close();
+            bufferedWriter.close();
+
+            System.out.println("Data has been read from and written to the file successfully.");
+
+            // Output the ArrayList
+            for (Animal animal : animalList) {
+                System.out.println(animal.toString());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        
 
-        System.out.println("Max Lives: " + Cat.MAX_LIVES);
-
-        System.out.println("Cat Count: " + Cat.getCatCount());
-
+        for (Animal animal : animalList) {
+            System.out.print(animal.desc);
+            System.out.print(animal.birthSeason);
+            System.out.print(animal.color);
+            System.out.print(animal.weight);
+            System.out.print(animal.origin1);
+            System.out.print(animal.origin2);
+        }
     }
 }
