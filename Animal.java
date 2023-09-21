@@ -1,7 +1,13 @@
 public class Animal {
 
-    public static int numofAnimals = 0;
+    public static int numOfAnimals = 0;
 
+    //Create a constructor
+    public Animal () {
+        numOfAnimals++;
+    }
+
+    String name;
     String desc;
 
     String birthSeason;
@@ -13,5 +19,7 @@ public class Animal {
     String origin1;
 
     String origin2;
+
+
 
 }

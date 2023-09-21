@@ -6,7 +6,10 @@ public class Main {
         // Specify the file path for reading and writing
         String filePath = "C:\\Users\\BE218\\IdeaProjects\\ArrivingAnimals\\src\\arrivingAnimals.txt";
 
-        ArrayList<Animal> animalList = new ArrayList<>(); // Fix the ArrayList declaration
+        //How many animals do we have
+        System.out.println("\n Before we use 'new' We have " + Animal.numOfAnimals);
+
+        /*ArrayList<Animal> animalList = new ArrayList<>(); // Fix the ArrayList declaration
 
         // Create the File object
         File file = new File(filePath);
@@ -74,6 +77,19 @@ public class Main {
             System.out.print(animal.weight);
             System.out.print(animal.origin1);
             System.out.print(animal.origin2);
+
+        //Create a new animal object.
+        Animal myAnimal = new Animal();
+
+        // Hyenas
+        Hyena myHyena = new Hyena();
+        myHyena.name = "Shenzi";
+        myHyena.birthSeason = "Spring";
+        myHyena.color = "Tan color";
+        myHyena.weight = "70 pounds";
+        myHyena.origin1 = "Friguria Park";
+        myHyena.origin2 = "Tunisia";
         }
+*/
     }
 }
