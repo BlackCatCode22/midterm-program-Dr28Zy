@@ -7,8 +7,13 @@ public class Animal {
         numOfAnimals++;
     }
 
+    public Animal(String theName, String theSpecies) {
+        this.name = theName;
+        this.species = theSpecies;
+    }
+
     String name;
-    String desc;
+    String species;
 
     String birthSeason;
 

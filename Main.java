@@ -7,9 +7,13 @@ public class Main {
         String filePath = "C:\\Users\\BE218\\IdeaProjects\\ArrivingAnimals\\src\\arrivingAnimals.txt";
 
         //How many animals do we have
-        System.out.println("\n Before we use 'new' We have " + Animal.numOfAnimals);
+        System.out.println("\n Before we use 'new' We have: " + Animal.numOfAnimals);
 
-        /*ArrayList<Animal> animalList = new ArrayList<>(); // Fix the ArrayList declaration
+        // String genUniqueID (String species, )
+
+
+
+        ArrayList<Animal> animalList = new ArrayList<>(); // Fix the ArrayList declaration
 
         // Create the File object
         File file = new File(filePath);
@@ -43,7 +47,7 @@ public class Main {
                 Animal anyOldAnimal = new Animal();
 
                 // Fill the object's data fields
-                anyOldAnimal.desc = myArray[0];
+                anyOldAnimal.species = myArray[0];
                 anyOldAnimal.birthSeason = myArray[1];
                 anyOldAnimal.color = myArray[2];
                 anyOldAnimal.origin1 = myArray[3];
@@ -71,7 +75,7 @@ public class Main {
         }
 
         for (Animal animal : animalList) {
-            System.out.print(animal.desc);
+            System.out.print(animal.species);
             System.out.print(animal.birthSeason);
             System.out.print(animal.color);
             System.out.print(animal.weight);
@@ -80,16 +84,27 @@ public class Main {
 
         //Create a new animal object.
         Animal myAnimal = new Animal();
+        Animal mySecondAnimal = new Animal("some name", "hyena");
 
-        // Hyenas
+        String aName = mySecondAnimal.name;
+            System.out.println("\n the animal name is: " + aName);
+
+//        // Hyenas
         Hyena myHyena = new Hyena();
-        myHyena.name = "Shenzi";
-        myHyena.birthSeason = "Spring";
-        myHyena.color = "Tan color";
-        myHyena.weight = "70 pounds";
-        myHyena.origin1 = "Friguria Park";
-        myHyena.origin2 = "Tunisia";
+//        myHyena.name = "Shenzi";
+//        myHyena.birthSeason = "Spring";
+//        myHyena.color = "Tan color";
+//        myHyena.weight = "70 pounds";
+//        myHyena.origin1 = "Friguria Park";
+//        myHyena.origin2 = "Tunisia";
+
+        //Look at the new Hyena object.
+            System.out.println("\n The hyena name is: " + myHyena.name);
+
+        Hyena aNewHyena = new Hyena("Zig", "hyena");
+
+        System.out.println("\n the name of my Hyena is: " + aNewHyena.name);
         }
-*/
+
     }
 }
