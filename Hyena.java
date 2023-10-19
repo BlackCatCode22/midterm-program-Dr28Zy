@@ -1,14 +1,19 @@
+import java.util.*;
+
 public class Hyena extends Animal {
-    //Create a constructor for a name and species
+    private static ArrayList<String> hyenaNames = new ArrayList<>();
+    private static int hyenaCount = 0;
 
-    public static int numOfHyenas = 0;
-
-    //Create a constructor
-    public Hyena(String somevar1,String somevar2) {
-        super(somevar1, somevar2);
-        numOfHyenas++;
+    // Constructor for the Hyena class
+    public Hyena(String animalColor, String birthSeason) {
+        super(animalColor, birthSeason);
+        hyenaCount++;
+        this.animalID = "HYE" + hyenaCount;
+        this.animalName = hyenaNames.get(hyenaCount - 1);
     }
 
-    String HyenaHouse;
-
+    // Static initialization block to read hyena names from file
+    static {
+        hyenaNames.addAll(readNamesFromFile("C:\\Users\\nstp2\\Documents\\School TINGS\\CIT 63 Java Programming\\arrivingAnimals.txt"));
+    }
 }
